@@ -2,6 +2,7 @@
 
 Throw Bananas
 
+Showcases API integration
 
 Active Project.  Can be played.  User must have crypto wallet with kovan testnet enabled.  (Enjin wallet.  Enable dev mode)
 
