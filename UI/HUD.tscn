@@ -1,0 +1,130 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/fonts/basefont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/fonts/Roboto-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/sprites/portal.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/chery_the_bunny.png" type="Texture" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("mb_sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 2, 2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("chery_sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 2, 2 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "chery"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("chery_sprite:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2, 2 ), Vector2( 4, 4 ), Vector2( 2, 2 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "coin"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("mb_sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2, 2 ), Vector2( 4, 4 ), Vector2( 2, 2 ) ]
+}
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="mb_sprite" type="Sprite" parent="."]
+position = Vector2( 78, 62 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 135.0
+margin_top = 54.0
+margin_right = 175.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 1 )
+text = "X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="mb_label" type="Label" parent="."]
+margin_left = 167.0
+margin_top = 40.0
+margin_right = 207.0
+margin_bottom = 88.0
+custom_fonts/font = SubResource( 1 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="chery_sprite" type="Sprite" parent="."]
+position = Vector2( 874, 63 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 931.0
+margin_top = 55.0
+margin_right = 971.0
+margin_bottom = 79.0
+custom_fonts/font = ExtResource( 1 )
+text = "X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="chery_label" type="Label" parent="."]
+margin_left = 963.0
+margin_top = 41.0
+margin_right = 1003.0
+margin_bottom = 89.0
+custom_fonts/font = SubResource( 1 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 2 )
+anims/chery = SubResource( 4 )
+anims/coin = SubResource( 3 )

@@ -1,0 +1,235 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://levels/jungle/jungleTiles.tscn" type="PackedScene" id=1]
+[ext_resource path="res://levels/jungle/Level.gd" type="Script" id=2]
+[ext_resource path="res://levels/jungle/tree2.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/sprites/tree_1.png" type="Texture" id=4]
+[ext_resource path="res://characters/monkey_player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://levels/jungle/Door.tscn" type="PackedScene" id=6]
+[ext_resource path="res://characters/Chicken.tscn" type="PackedScene" id=7]
+[ext_resource path="res://UI/Win_panel.tscn" type="PackedScene" id=8]
+[ext_resource path="res://UI/HUD.tscn" type="PackedScene" id=10]
+[ext_resource path="res://characters/Chery.tscn" type="PackedScene" id=11]
+
+[node name="jungle1" type="Node2D"]
+position = Vector2( 0, 1020 )
+
+[node name="Level" type="Node2D" parent="."]
+script = ExtResource( 2 )
+
+[node name="HUD" parent="Level" instance=ExtResource( 10 )]
+
+[node name="jungleTiles" parent="Level" instance=ExtResource( 1 )]
+
+[node name="Door" parent="Level" instance=ExtResource( 6 )]
+
+[node name="tree" type="StaticBody2D" parent="Level"]
+position = Vector2( 716, -20 )
+
+[node name="Sprite" type="Sprite" parent="Level/tree"]
+scale = Vector2( 4.40625, 4.21875 )
+texture = ExtResource( 4 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level/tree"]
+rotation = 0.21635
+scale = Vector2( 4.40625, 4.21875 )
+polygon = PoolVector2Array( 32, -16.6, 30.7, -14, 31.7, -14, 32, -11.9, 32, 4, 31.4, 4, 27.2, 5.6, 32, 11, 32, 27, 17, 27, 10.7, 32, 2, 32, 2, 30.1, 0, 28.7, -0.9, 32, -27, 32, -27, 23.5, -24.6, 19, -32, 19, -32, 5.3, -29.5, -3, -27.7, -3, -22.4, -7.6, -32, -17.2, -32, -32, -19, -32, -19, -30.4, -15, -28.9, -15, -32, 6, -32, 8.8, -27.4, 15, -32, 31.8, -32 )
+
+[node name="tree2" parent="Level" instance=ExtResource( 3 )]
+
+[node name="tree5" type="StaticBody2D" parent="Level"]
+position = Vector2( 2199, 94 )
+rotation = -1.17994
+
+[node name="Sprite" type="Sprite" parent="Level/tree5"]
+scale = Vector2( 4.40625, 4.21875 )
+texture = ExtResource( 4 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level/tree5"]
+rotation = -0.396091
+scale = Vector2( 4.40625, 4.21875 )
+polygon = PoolVector2Array( 32, -16.6, 30.7, -14, 31.7, -14, 32, -11.9, 32, 4, 31.4, 4, 27.2, 5.6, 32, 11, 32, 27, 17, 27, 10.7, 32, 2, 32, 2, 30.1, 0, 28.7, -0.9, 32, -27, 32, -27, 23.5, -24.6, 19, -32, 19, -32, 5.3, -29.5, -3, -27.7, -3, -22.4, -7.6, -32, -17.2, -32, -32, -19, -32, -19, -30.4, -15, -28.9, -15, -32, 6, -32, 8.8, -27.4, 15, -32, 31.8, -32 )
+
+[node name="tree7" type="StaticBody2D" parent="Level"]
+position = Vector2( 1967, -1053 )
+rotation = -1.17994
+
+[node name="Sprite" type="Sprite" parent="Level/tree7"]
+scale = Vector2( 4.40625, 4.21875 )
+texture = ExtResource( 4 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level/tree7"]
+rotation = -0.396091
+scale = Vector2( 4.40625, 4.21875 )
+polygon = PoolVector2Array( 32, -16.6, 30.7, -14, 31.7, -14, 32, -11.9, 32, 4, 31.4, 4, 27.2, 5.6, 32, 11, 32, 27, 17, 27, 10.7, 32, 2, 32, 2, 30.1, 0, 28.7, -0.9, 32, -27, 32, -27, 23.5, -24.6, 19, -32, 19, -32, 5.3, -29.5, -3, -27.7, -3, -22.4, -7.6, -32, -17.2, -32, -32, -19, -32, -19, -30.4, -15, -28.9, -15, -32, 6, -32, 8.8, -27.4, 15, -32, 31.8, -32 )
+
+[node name="tree8" type="StaticBody2D" parent="Level"]
+position = Vector2( 1518, -1064 )
+rotation = -1.42913
+
+[node name="Sprite" type="Sprite" parent="Level/tree8"]
+scale = Vector2( 4.40625, 4.21875 )
+texture = ExtResource( 4 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level/tree8"]
+rotation = -0.396091
+scale = Vector2( 4.40625, 4.21875 )
+polygon = PoolVector2Array( 32, -16.6, 30.7, -14, 31.7, -14, 32, -11.9, 32, 4, 31.4, 4, 27.2, 5.6, 32, 11, 32, 27, 17, 27, 10.7, 32, 2, 32, 2, 30.1, 0, 28.7, -0.9, 32, -27, 32, -27, 23.5, -24.6, 19, -32, 19, -32, 5.3, -29.5, -3, -27.7, -3, -22.4, -7.6, -32, -17.2, -32, -32, -19, -32, -19, -30.4, -15, -28.9, -15, -32, 6, -32, 8.8, -27.4, 15, -32, 31.8, -32 )
+
+[node name="tree9" type="StaticBody2D" parent="Level"]
+position = Vector2( 2836, 1341 )
+rotation = -1.48156
+
+[node name="Sprite" type="Sprite" parent="Level/tree9"]
+scale = Vector2( 4.40625, 4.21875 )
+texture = ExtResource( 4 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level/tree9"]
+rotation = -0.396091
+scale = Vector2( 4.40625, 4.21875 )
+polygon = PoolVector2Array( 32, -16.6, 30.7, -14, 31.7, -14, 32, -11.9, 32, 4, 31.4, 4, 27.2, 5.6, 32, 11, 32, 27, 17, 27, 10.7, 32, 2, 32, 2, 30.1, 0, 28.7, -0.9, 32, -27, 32, -27, 23.5, -24.6, 19, -32, 19, -32, 5.3, -29.5, -3, -27.7, -3, -22.4, -7.6, -32, -17.2, -32, -32, -19, -32, -19, -30.4, -15, -28.9, -15, -32, 6, -32, 8.8, -27.4, 15, -32, 31.8, -32 )
+
+[node name="tree10" type="StaticBody2D" parent="Level"]
+position = Vector2( 192, 1444 )
+rotation = -1.48156
+
+[node name="Sprite" type="Sprite" parent="Level/tree10"]
+scale = Vector2( 4.40625, 4.21875 )
+texture = ExtResource( 4 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level/tree10"]
+rotation = -0.396091
+scale = Vector2( 4.40625, 4.21875 )
+polygon = PoolVector2Array( 32, -16.6, 30.7, -14, 31.7, -14, 32, -11.9, 32, 4, 31.4, 4, 27.2, 5.6, 32, 11, 32, 27, 17, 27, 10.7, 32, 2, 32, 2, 30.1, 0, 28.7, -0.9, 32, -27, 32, -27, 23.5, -24.6, 19, -32, 19, -32, 5.3, -29.5, -3, -27.7, -3, -22.4, -7.6, -32, -17.2, -32, -32, -19, -32, -19, -30.4, -15, -28.9, -15, -32, 6, -32, 8.8, -27.4, 15, -32, 31.8, -32 )
+
+[node name="tree11" type="StaticBody2D" parent="Level"]
+position = Vector2( 156, 1088 )
+rotation = -0.610105
+
+[node name="Sprite" type="Sprite" parent="Level/tree11"]
+scale = Vector2( 4.40625, 4.21875 )
+texture = ExtResource( 4 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level/tree11"]
+rotation = -0.396091
+scale = Vector2( 4.40625, 4.21875 )
+polygon = PoolVector2Array( 32, -16.6, 30.7, -14, 31.7, -14, 32, -11.9, 32, 4, 31.4, 4, 27.2, 5.6, 32, 11, 32, 27, 17, 27, 10.7, 32, 2, 32, 2, 30.1, 0, 28.7, -0.9, 32, -27, 32, -27, 23.5, -24.6, 19, -32, 19, -32, 5.3, -29.5, -3, -27.7, -3, -22.4, -7.6, -32, -17.2, -32, -32, -19, -32, -19, -30.4, -15, -28.9, -15, -32, 6, -32, 8.8, -27.4, 15, -32, 31.8, -32 )
+
+[node name="tree12" type="StaticBody2D" parent="Level"]
+position = Vector2( 1860, 20 )
+rotation = -0.610105
+
+[node name="Sprite" type="Sprite" parent="Level/tree12"]
+scale = Vector2( 4.40625, 4.21875 )
+texture = ExtResource( 4 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level/tree12"]
+rotation = -0.396091
+scale = Vector2( 4.40625, 4.21875 )
+polygon = PoolVector2Array( 32, -16.6, 30.7, -14, 31.7, -14, 32, -11.9, 32, 4, 31.4, 4, 27.2, 5.6, 32, 11, 32, 27, 17, 27, 10.7, 32, 2, 32, 2, 30.1, 0, 28.7, -0.9, 32, -27, 32, -27, 23.5, -24.6, 19, -32, 19, -32, 5.3, -29.5, -3, -27.7, -3, -22.4, -7.6, -32, -17.2, -32, -32, -19, -32, -19, -30.4, -15, -28.9, -15, -32, 6, -32, 8.8, -27.4, 15, -32, 31.8, -32 )
+
+[node name="tree13" type="StaticBody2D" parent="Level"]
+position = Vector2( 1884, 416 )
+rotation = 0.878689
+
+[node name="Sprite" type="Sprite" parent="Level/tree13"]
+scale = Vector2( 4.40625, 4.21875 )
+texture = ExtResource( 4 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level/tree13"]
+rotation = -0.396091
+scale = Vector2( 4.40625, 4.21875 )
+polygon = PoolVector2Array( 32, -16.6, 30.7, -14, 31.7, -14, 32, -11.9, 32, 4, 31.4, 4, 27.2, 5.6, 32, 11, 32, 27, 17, 27, 10.7, 32, 2, 32, 2, 30.1, 0, 28.7, -0.9, 32, -27, 32, -27, 23.5, -24.6, 19, -32, 19, -32, 5.3, -29.5, -3, -27.7, -3, -22.4, -7.6, -32, -17.2, -32, -32, -19, -32, -19, -30.4, -15, -28.9, -15, -32, 6, -32, 8.8, -27.4, 15, -32, 31.8, -32 )
+
+[node name="tree6" type="StaticBody2D" parent="Level"]
+position = Vector2( 2228, 362 )
+rotation = 1.51566
+
+[node name="Sprite" type="Sprite" parent="Level/tree6"]
+scale = Vector2( 4.40625, 4.21875 )
+texture = ExtResource( 4 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level/tree6"]
+rotation = -0.396091
+scale = Vector2( 4.40625, 4.21875 )
+polygon = PoolVector2Array( 32, -16.6, 30.7, -14, 31.7, -14, 32, -11.9, 32, 4, 31.4, 4, 27.2, 5.6, 32, 11, 32, 27, 17, 27, 10.7, 32, 2, 32, 2, 30.1, 0, 28.7, -0.9, 32, -27, 32, -27, 23.5, -24.6, 19, -32, 19, -32, 5.3, -29.5, -3, -27.7, -3, -22.4, -7.6, -32, -17.2, -32, -32, -19, -32, -19, -30.4, -15, -28.9, -15, -32, 6, -32, 8.8, -27.4, 15, -32, 31.8, -32 )
+
+[node name="tree3" type="StaticBody2D" parent="Level"]
+position = Vector2( 1217, 1080 )
+
+[node name="Sprite" type="Sprite" parent="Level/tree3"]
+scale = Vector2( 4.40625, 4.21875 )
+texture = ExtResource( 4 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level/tree3"]
+rotation = 1.83239
+scale = Vector2( 4.40625, 4.21875 )
+polygon = PoolVector2Array( 32, -16.6, 30.7, -14, 31.7, -14, 32, -11.9, 32, 4, 31.4, 4, 27.2, 5.6, 32, 11, 32, 27, 17, 27, 10.7, 32, 2, 32, 2, 30.1, 0, 28.7, -0.9, 32, -27, 32, -27, 23.5, -24.6, 19, -32, 19, -32, 5.3, -29.5, -3, -27.7, -3, -22.4, -7.6, -32, -17.2, -32, -32, -19, -32, -19, -30.4, -15, -28.9, -15, -32, 6, -32, 8.8, -27.4, 15, -32, 31.8, -32 )
+
+[node name="tree4" type="StaticBody2D" parent="Level"]
+position = Vector2( 2448, -683 )
+rotation = -0.566492
+
+[node name="Sprite" type="Sprite" parent="Level/tree4"]
+scale = Vector2( 4.40625, 4.21875 )
+texture = ExtResource( 4 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level/tree4"]
+scale = Vector2( 4.40625, 4.21875 )
+polygon = PoolVector2Array( 32, -16.6, 30.7, -14, 31.7, -14, 32, -11.9, 32, 4, 31.4, 4, 27.2, 5.6, 32, 11, 32, 27, 17, 27, 10.7, 32, 2, 32, 2, 30.1, 0, 28.7, -0.9, 32, -27, 32, -27, 23.5, -24.6, 19, -32, 19, -32, 5.3, -29.5, -3, -27.7, -3, -22.4, -7.6, -32, -17.2, -32, -32, -19, -32, -19, -30.4, -15, -28.9, -15, -32, 6, -32, 8.8, -27.4, 15, -32, 31.8, -32 )
+
+[node name="monkey_player" parent="Level" instance=ExtResource( 5 )]
+position = Vector2( 1490, 188 )
+
+[node name="Camera2D" parent="Level/monkey_player" index="3"]
+limit_left = 13
+limit_top = 18
+limit_right = 3078
+limit_bottom = 2636
+
+[node name="Chicken" parent="Level" instance=ExtResource( 7 )]
+position = Vector2( 853, -666 )
+rotation = -0.673626
+
+[node name="Chicken2" parent="Level" instance=ExtResource( 7 )]
+position = Vector2( 1505, 603 )
+
+[node name="Chicken3" parent="Level" instance=ExtResource( 7 )]
+position = Vector2( 921, 480 )
+rotation = 2.34278
+
+[node name="Chicken4" parent="Level" instance=ExtResource( 7 )]
+position = Vector2( 421, 915 )
+
+[node name="Chicken5" parent="Level" instance=ExtResource( 7 )]
+position = Vector2( 2164, 854 )
+rotation = -1.16793
+
+[node name="Chicken6" parent="Level" instance=ExtResource( 7 )]
+position = Vector2( 2708, -422 )
+
+[node name="Win_panel" parent="Level" instance=ExtResource( 8 )]
+margin_left = 16.0
+margin_top = 123.0
+margin_right = 616.0
+margin_bottom = 723.0
+
+[node name="Chery" parent="Level" instance=ExtResource( 11 )]
+position = Vector2( 835, 703 )
+
+[node name="Chery2" parent="Level" instance=ExtResource( 11 )]
+position = Vector2( 441, -687 )
+
+[node name="Chery3" parent="Level" instance=ExtResource( 11 )]
+position = Vector2( 1924, -310 )
+
+[node name="Chery4" parent="Level" instance=ExtResource( 11 )]
+position = Vector2( 2797, -717 )
+
+[connection signal="body_entered" from="Level/Door/exit" to="Level" method="_on_exit_body_entered"]
+[connection signal="pressed" from="Level/Win_panel/win_ok" to="Level" method="_on_win_ok_pressed"]
+
+[editable path="Level/Door"]
+[editable path="Level/monkey_player"]
+[editable path="Level/monkey_player/right_arm"]
+[editable path="Level/Win_panel"]

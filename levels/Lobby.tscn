@@ -1,0 +1,105 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://characters/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/fonts/basefont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/fonts/Roboto-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://UI/Message.gd" type="Script" id=4]
+[ext_resource path="res://items/Cat.tscn" type="PackedScene" id=5]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 10, 0.5, 10 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.101961, 0.482353, 0.109804, 1 )
+
+[sub_resource type="ConvexPolygonShape" id=2]
+points = PoolVector3Array( -5, -0.25, -5, -5, 0.25, -5, 5, -0.25, -5, -5, -0.25, 5, -5, 0.25, 5, 5, 0.25, -5, 5, -0.25, 5, 5, 0.25, 5 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.239216, 0.235294, 0.235294, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="DynamicFont" id=5]
+size = 30
+font_data = ExtResource( 3 )
+
+[node name="Lobby" type="Spatial"]
+
+[node name="floor" type="StaticBody" parent="."]
+
+[node name="MeshInstance" type="MeshInstance" parent="floor"]
+mesh = SubResource( 1 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="floor"]
+shape = SubResource( 2 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.319481, 0 )
+
+[node name="Message" type="Panel" parent="."]
+self_modulate = Color( 1, 1, 1, 0.45098 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -202.5
+margin_top = -188.0
+margin_right = 202.5
+margin_bottom = 188.0
+custom_styles/panel = SubResource( 4 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Message"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -10.0
+margin_bottom = 107.0
+grow_horizontal = 2
+custom_fonts/font = SubResource( 5 )
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Mess_Back_but" type="Button" parent="Message"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -19.5
+margin_top = -30.0
+margin_right = 19.5
+custom_fonts/font = ExtResource( 2 )
+text = "OK"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Image" type="TextureRect" parent="Message"]
+margin_left = 122.0
+margin_top = 4.0
+margin_right = 268.0
+margin_bottom = 146.0
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cat" parent="Message" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.73317, 0.624861, 0 )
+
+[connection signal="pressed" from="Message/Mess_Back_but" to="Message" method="_on_Mess_Back_but_pressed"]

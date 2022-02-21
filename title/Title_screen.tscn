@@ -1,0 +1,235 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://assets/fonts/Roboto-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/sprites/banana.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/big_monkey.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/arm.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/apple.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/chery_the_bunny.png" type="Texture" id=6]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.4, 0.435294, 0.427451, 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 60
+outline_size = 2
+outline_color = Color( 0.807843, 0.729412, 0.0941176, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 20
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -118, 989 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "fadeout"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2.4, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.7, 0.9, 1.9, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -118, 989 ), Vector2( -118, 989 ), Vector2( 35, 732 ), Vector2( -238, 794 ), Vector2( -166, 432 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "New Anim"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 24.4819, 19.56 ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 24.4819 ]
+}
+
+[node name="Title_screen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -175.0
+margin_top = 171.0
+margin_right = 177.0
+margin_bottom = 242.0
+custom_fonts/font = SubResource( 2 )
+text = "Banana Fight"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -167.0
+margin_top = 259.0
+margin_right = 185.0
+margin_bottom = 334.0
+custom_fonts/font = SubResource( 5 )
+text = "by
+fwoovla"
+align = 1
+
+[node name="Label2" type="Label" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -294.0
+margin_top = -29.0
+custom_fonts/font = SubResource( 6 )
+text = "powered by Playfab and Enjin"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "fadeout"
+anims/RESET = SubResource( 3 )
+anims/fadeout = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -118, 989 )
+rotation = 0.386974
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+offset = Vector2( 4.68669, -69.7493 )
+
+[node name="Sprite" type="Sprite" parent="Sprite"]
+position = Vector2( 37.3546, -97.1481 )
+rotation = 0.87917
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+
+[node name="BigMonkey" type="Sprite" parent="."]
+position = Vector2( 484.665, -30.709 )
+rotation = 3.11813
+scale = Vector2( 2, 2 )
+texture = ExtResource( 3 )
+
+[node name="Arm" type="Sprite" parent="."]
+position = Vector2( 564.664, 49.291 )
+rotation = -4.24917
+scale = Vector2( 2, 3 )
+texture = ExtResource( 4 )
+
+[node name="Apple" type="Sprite" parent="Arm"]
+position = Vector2( -0.367371, -32.8993 )
+rotation = -2.05156
+scale = Vector2( 0.355095, 0.484787 )
+texture = ExtResource( 5 )
+
+[node name="CheryTheBunny" type="Sprite" parent="."]
+position = Vector2( 856.665, 241.291 )
+rotation = 0.427289
+scale = Vector2( 10, 10 )
+texture = ExtResource( 6 )
+flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CheryTheBunny"]
+autoplay = "New Anim"
+"anims/New Anim" = SubResource( 7 )
+anims/RESET = SubResource( 8 )
