@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://characters/Player.gd" type="Script" id=1]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 1, 1, 1 )
+
+[sub_resource type="SphereMesh" id=3]
+radius = 0.2
+height = 0.4
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_color = Color( 0.258824, 0.203922, 0.203922, 1 )
+
+[sub_resource type="ConvexPolygonShape" id=2]
+points = PoolVector3Array( 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5 )
+
+[node name="Player" type="KinematicBody"]
+script = ExtResource( 1 )
+turret = NodePath("CameraBase")
+
+[node name="CameraBase" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0999, 0 )
+
+[node name="Camera" type="Camera" parent="CameraBase"]
+transform = Transform( 1, 0, 0, 0, 0.992764, 0.120085, 0, -0.120085, 0.992764, 0, 0.620823, 1.23876 )
+
+[node name="Action_ray" type="RayCast" parent="CameraBase"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.574795 )
+enabled = true
+cast_to = Vector3( 0, 0, -10 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.514811, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="MeshInstance" type="MeshInstance" parent="MeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20295, 0.225353, -0.48348 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="MeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.283852, 0.225353, -0.48348 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.514811, 0 )
+shape = SubResource( 2 )
+
+[node name="Tween" type="Tween" parent="."]

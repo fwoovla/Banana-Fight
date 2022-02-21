@@ -1,0 +1,127 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/sprites/chicken.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/chicken_wing.png" type="Texture" id=2]
+[ext_resource path="res://characters/Chicken_controller.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Chicken/ChickenWing:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 3.50806, -12.941 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Chicken/ChickenWing:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 27.3687 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Chicken/ChickenWing2:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -2.58433 ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "flap"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Chicken/ChickenWing:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 3.50806, -12.941 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Chicken/ChickenWing:rotation_degrees")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 2.6067, 26.969, 6.45845 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Chicken/ChickenWing2:rotation_degrees")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ -2.58433, -27.3641, -4.09217 ]
+}
+
+[node name="Chicken" type="KinematicBody2D" groups=["chicken"]]
+script = ExtResource( 3 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+scale = Vector2( 1.2, 1.2 )
+polygon = PoolVector2Array( 11, -18.7, 11, -16.8, 15.8, -12, 22, -12, 22, -9.7, 30.4, -0.4, 29.3, 2, 28, 2, 21, 12, 15.7, 12, 3.7, 21, -3.6, 21, -21.6, 9, -29.3, 9, -32, 8.1, -32, -14, -13, -15.8, -13, -16.4, -5, -19.4, -5, -21.4 )
+
+[node name="Chicken" type="Area2D" parent="."]
+scale = Vector2( 1.2, 1.2 )
+
+[node name="Chicken" type="Sprite" parent="Chicken"]
+texture = ExtResource( 1 )
+
+[node name="ChickenWing" type="Sprite" parent="Chicken/Chicken"]
+position = Vector2( 3.50806, -12.941 )
+rotation = 0.477674
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 2 )
+offset = Vector2( -22.9005, -0.0757465 )
+
+[node name="ChickenWing2" type="Sprite" parent="Chicken/Chicken"]
+position = Vector2( 6, 13 )
+rotation = -0.0451051
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 2 )
+offset = Vector2( -22.9005, -0.0757465 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Chicken"]
+polygon = PoolVector2Array( 11, -18.7, 11, -16.8, 15.8, -12, 22, -12, 22, -9.7, 30.4, -0.4, 29.3, 2, 28, 2, 21, 12, 15.7, 12, 3.7, 21, -3.6, 21, -21.6, 9, -29.3, 9, -32, 8.1, -32, -14, -13, -15.8, -13, -16.4, -5, -19.4, -5, -21.4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Chicken"]
+anims/RESET = SubResource( 2 )
+anims/flap = SubResource( 1 )
+
+[node name="flap_timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="flap_timer" to="." method="_on_flap_timer_timeout"]
